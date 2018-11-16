@@ -1,0 +1,49 @@
+{
+  "name": "coverage-on-diff",
+  "version": "0.0.1",
+  "description": "A tool to get code coverage on new lines added based on a diff",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "node ./node_modules/eslint/bin/eslint .",
+    "test": "npm run eslint && npm run test:mocha",
+    "test:mocha": "./node_modules/nyc/bin/nyc.js --reporter=text-summary ./node_modules/.bin/mocha  'test/**/test*.js'",
+    "prepare": "./node_modules/nyc/bin/nyc.js --check-coverage --lines 100 --functions 100 --branches 100 npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classy-org/coverage-on-diff.git"
+  },
+  "bin": {
+    "coverageOnDiff": "./bin/cli.js"
+  },
+  "author": "tkua@classy.org",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.11",
+    "parse-diff": "^0.5.1",
+    "path": "^0.12.7",
+    "table": "^5.1.0",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-google": "^0.11.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "rewire": "^4.0.1",
+    "should": "^13.2.3",
+    "should-sinon": "0.0.6",
+    "sinon": "^7.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/classy-org/coverage-on-diff/issues"
+  },
+  "homepage": "https://github.com/classy-org/coverage-on-diff#readme",
+  "keywords": [
+    "coverage",
+    "diff",
+    "test"
+  ]
+}

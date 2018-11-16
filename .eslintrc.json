@@ -1,0 +1,13 @@
+{
+	"parserOptions": {
+      "ecmaVersion": 6
+  },
+	"env": {
+    "node": true
+  },
+  "extends": "google",
+  "rules": {
+  	"max-len": ["error", { "code": 120, "ignoreStrings": true,  "ignoreTemplateLiterals": true }],
+    "require-jsdoc": 0
+  }
+}

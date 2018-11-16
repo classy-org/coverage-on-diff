@@ -1,0 +1,13 @@
+diff --git a/dummy/dummyUtil.js b/dummy/dummyUtil.js
+index 8c1yxa2..868xxf7 100644
+--- a/dummy/dummyUtil.js
++++ b/dummy/dummyUtil.js
+@@ -64,6 +64,9 @@ function subtract(n1, n2) {
+   const n1NoDec = z.prepare(n1);
+   const n2NoDec = z.prepare(n2);
+   const resultNoDec = n1NoDec - n2NoDec;
++  if (n1 === 2) {
++    return -1;
++  }
+   return z.finalize(resultNoDec);
+ }
