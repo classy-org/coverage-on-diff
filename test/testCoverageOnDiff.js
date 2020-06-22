@@ -90,27 +90,13 @@ describe('CoverageOnDiff Test', () => {
       });
     });
 
-    it('should default to no code coverage if file does not exist in ', () => {
+    it('should not include changed files that are not in the coverage', () => {
       const diffCodeCoverage = coverageOnDiff.evaluateCodeCoverage(dataFactory.getParsedCodeCoverage(), {
         'buster/dummyUtil.js': [10],
       });
       changedStmtCoverageStub.should.not.be.calledOnce();
       changedBranchCoverageStub.should.not.be.calledOnce();
-      diffCodeCoverage.should.eql({
-        'buster/dummyUtil.js': {
-          lines: [10],
-          stmt: {
-            nCovered: 0,
-            nUncovered: 1,
-            coveredLines: [],
-            unCoveredLines: [10],
-          },
-          branch: {
-            nCovered: 0,
-            nUncovered: 1,
-          },
-        },
-      });
+      diffCodeCoverage.should.not.have.property('buster/dummyUtil.js');
     });
   });
 
