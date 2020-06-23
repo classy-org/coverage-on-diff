@@ -122,19 +122,6 @@ coverageOnDiff.evaluateCodeCoverage = (coverage, newLine) => {
       diffCodeCoverage[file].lines = changedLines;
       diffCodeCoverage[file].stmt = changedStmtCoverage(coverage[file], changedLines);
       diffCodeCoverage[file].branch = changedBranchCoverage(coverage[file], changedLines);
-    } else {
-      diffCodeCoverage[file] = {};
-      diffCodeCoverage[file].lines = changedLines;
-      diffCodeCoverage[file].stmt = {
-        nCovered: 0,
-        nUncovered: changedLines.length,
-        coveredLines: [],
-        unCoveredLines: changedLines,
-      };
-      diffCodeCoverage[file].branch = {
-        nCovered: 0,
-        nUncovered: changedLines.length,
-      };
     }
   }
   return diffCodeCoverage;
