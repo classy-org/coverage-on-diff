@@ -98,12 +98,16 @@ function changedBranchCoverage(coverage, changedLines) {
 
   let nCovered = 0;
   let nUncovered = 0;
+  const changedCoveredLines = [];
+  const unchangedCoveredLines = [];
 
   for (const line of changedLines) {
     if (coveredLines.includes(line)) {
+      changedCoveredLines.push(line);
       nCovered++;
     }
     if (uncoveredLines.includes(line)) {
+      unchangedCoveredLines.push(line);
       nUncovered++;
     }
   }
@@ -111,6 +115,8 @@ function changedBranchCoverage(coverage, changedLines) {
   return {
     nCovered,
     nUncovered,
+    coveredLines: changedCoveredLines,
+    unCoveredLines: unchangedCoveredLines,
   };
 }
 
