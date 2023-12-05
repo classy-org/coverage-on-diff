@@ -1,6 +1,6 @@
 {
   "name": "coverage-on-diff",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A tool to get code coverage on new lines added based on a diff",
   "main": "index.js",
   "scripts": {

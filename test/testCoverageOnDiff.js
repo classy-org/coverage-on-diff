@@ -174,6 +174,8 @@ describe('CoverageOnDiff Test', () => {
         result.should.eql({
           nCovered: 0,
           nUncovered: 0,
+          coveredLines: [],
+          unCoveredLines: [],
         });
       });
       it('should have covered branch changes', () => {
@@ -181,6 +183,8 @@ describe('CoverageOnDiff Test', () => {
         result.should.eql({
           nCovered: 1,
           nUncovered: 0,
+          coveredLines: [10],
+          unCoveredLines: [],
         });
       });
       it('should have uncovered branch changes', () => {
@@ -188,6 +192,8 @@ describe('CoverageOnDiff Test', () => {
         result.should.eql({
           nCovered: 0,
           nUncovered: 1,
+          coveredLines: [],
+          unCoveredLines: [15],
         });
       });
       it('should be uncovered branch when there is at least 1 uncovered path', () => {
@@ -195,6 +201,8 @@ describe('CoverageOnDiff Test', () => {
         result.should.eql({
           nCovered: 0,
           nUncovered: 1,
+          coveredLines: [],
+          unCoveredLines: [30],
         });
       });
     });
